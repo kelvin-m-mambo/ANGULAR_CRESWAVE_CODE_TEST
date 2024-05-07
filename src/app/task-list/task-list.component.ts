@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router'; // Import Router instead of RouterLink
 import { Task } from '../task';
 
 @Component({
   selector: 'app-task-list',
-  standalone: true,
-  imports: [MatButtonModule, MatCardModule, RouterLink],
   templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.css'
+  styleUrls: ['./task-list.component.css'], // Use styleUrls instead of styleUrl
+  providers: [MatButtonModule, MatCardModule] // Provide necessary modules
 })
 export class TaskListComponent {
   tasks: Task[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     this.loadTasks();
   }
 
@@ -27,7 +26,7 @@ export class TaskListComponent {
 
   saveTasks(): void {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
-}
+  }
 
   removeTask(id: number): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
@@ -36,7 +35,6 @@ export class TaskListComponent {
 
   markAsDone(task: Task): void {
     task.done = true;
-    // console.log(task);
     this.saveTasks();
-}
+  }
 }

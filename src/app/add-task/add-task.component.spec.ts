@@ -14,6 +14,7 @@ describe('AddTaskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [AddTaskComponent], // Declare the component under test
       imports: [
         MatButtonModule,
         MatCardModule,
@@ -22,8 +23,7 @@ describe('AddTaskComponent', () => {
         FormsModule,
         BrowserAnimationsModule
       ]
-    })
-      .compileComponents();
+    }).compileComponents(); // Compile components asynchronously
 
     fixture = TestBed.createComponent(AddTaskComponent);
     component = fixture.componentInstance;
