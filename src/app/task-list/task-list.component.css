@@ -4,27 +4,22 @@ mat-card {
     padding: 12px;
   }
   
-  mat-card-header {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  mat-form-field {
-    width: 45dvw;
-  }
-  
   @media only screen and (max-width: 426px) {
     mat-card {
       width: 95vw;
     }
+  }
   
-    mat-form-field {
-      width: 80dvw;
-    }
+  mat-card-header {
+    width: 100%;
   }
   
   mat-card-actions {
     display: flex;
     justify-content: end;
     margin: 0 10px;
+  }
+  .done {
+    text-decoration: line-through; 
+    /* opacity: 0.6;  */
   }

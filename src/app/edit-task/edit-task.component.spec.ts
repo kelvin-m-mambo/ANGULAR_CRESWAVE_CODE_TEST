@@ -5,12 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { AddTaskComponent } from './add-task.component';
+import { EditTaskComponent } from './edit-task.component';
 
-describe('AddTaskComponent', () => {
-  let component: AddTaskComponent;
-  let fixture: ComponentFixture<AddTaskComponent>;
+describe('EditTaskComponent', () => {
+  let component: EditTaskComponent;
+  let fixture: ComponentFixture<EditTaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,12 +21,13 @@ describe('AddTaskComponent', () => {
         MatInputModule,
         MatFormFieldModule,
         FormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(AddTaskComponent);
+    fixture = TestBed.createComponent(EditTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
