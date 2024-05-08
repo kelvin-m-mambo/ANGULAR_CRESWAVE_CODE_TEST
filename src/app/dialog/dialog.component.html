@@ -1,0 +1,36 @@
+<h1 mat-dialog-tittle>Add Task</h1>
+<div mat-dialog-content>
+    <form [formGroup]="taskForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Tittle</mat-label>
+        <input formControlName="tittle" matInput placeholder="tittle">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput>description </textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" placeholder="status">
+          <mat-option value="Complete">Complete</mat-option>
+          <mat-option value="Incomplete">Incomplete</mat-option>
+          <!-- <mat-option value="Not Intrested">Not Done</mat-option>  -->
+        </mat-select>
+      </mat-form-field>
+      <!-- <label for=""><h1>Status</h1></label>
+      <mat-radio-group formControlName="status"class="example-radio-group">
+        <mat-radio-button class="example-radio-button" *ngFor="let Status of statusList "[value]="Status">
+          {{ Status }}
+
+        </mat-radio-button>
+      </mat-radio-group> -->
+    </form>  
+</div>
+
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addTask()">Save</button>
+
+</div>
