@@ -10,7 +10,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog'
 })
 export class DialogComponent implements OnInit {
 
-  // statusList = ["Incomplete","complete"];
+
   taskForm !: FormGroup;
   actionBtn : string = "save"
   constructor(private formBuilder : FormBuilder, 

@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 
 
@@ -27,6 +28,7 @@ import {MatSortModule} from '@angular/material/sort';
   declarations: [
     AppComponent,
     DialogComponent,
+    AddTaskComponent,
     
   ],
   imports: [
