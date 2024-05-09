@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "title": "Sleep night",
-      "description": "Must sleep",
+      "title": "Sleep ",
+      "description": "Must sleep ",
       "status": "Incomplete",
       "id": "1b47"
     },
@@ -34,6 +34,12 @@
       "id": "d074",
       "title": "Read",
       "description": "Novel",
+      "status": "Incomplete"
+    },
+    {
+      "id": "8ca9",
+      "title": "Movie",
+      "description": "Peaky Blinders",
       "status": "Incomplete"
     }
   ]

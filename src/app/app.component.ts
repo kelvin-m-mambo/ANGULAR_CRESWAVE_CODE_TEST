@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from './services/api.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -12,25 +13,31 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-addTask() {
-throw new Error('Method not implemented.');
-}
-  Name = 'demo';
   displayedColumns: string[] = ['title', 'description', 'status',  'action'];
   dataSource = new MatTableDataSource<any>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  constructor(private dialog: MatDialog, private api: ApiService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.getAllTasks();
   }
 
   openDialog() {
+    const isXSmallScreen = this.breakpointObserver.isMatched(Breakpoints.XSmall);
+    const isSmallScreen = this.breakpointObserver.isMatched(Breakpoints.Small);
+
+    let dialogWidth = '30%';
+    if (isXSmallScreen) {
+      dialogWidth = '100%';
+    } else if (isSmallScreen) {
+      dialogWidth = '70%';
+    }
+
     this.dialog.open(DialogComponent, {
-      width: '30%'
+      width: dialogWidth
     }).afterClosed().subscribe(val=>{
       if(val ==='save'){
         this.getAllTasks();
@@ -53,8 +60,18 @@ throw new Error('Method not implemented.');
   }
 
   editTask(row : any){
+    const isXSmallScreen = this.breakpointObserver.isMatched(Breakpoints.XSmall);
+    const isSmallScreen = this.breakpointObserver.isMatched(Breakpoints.Small);
+
+    let dialogWidth = '30%';
+    if (isXSmallScreen) {
+      dialogWidth = '100%';
+    } else if (isSmallScreen) {
+      dialogWidth = '70%';
+    }
+
     this.dialog.open(DialogComponent,{
-      width: '30%',
+      width: dialogWidth,
       data:row
     }).afterClosed().subscribe(val=>{
       if(val ==='update'){
@@ -67,7 +84,7 @@ throw new Error('Method not implemented.');
     this.api.deleteTask(id)
     .subscribe({
       next:(res)=>{
-        alert("Task delted succesfuly");
+        alert("Task deleted successfully");
         this.getAllTasks();
       },
       error:()=>{
