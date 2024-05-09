@@ -18,20 +18,19 @@ export class DialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editData : any,
     private dialogRef : MatDialogRef<DialogComponent> ) { }
 
-  ngOnInit(): void {
-    this.taskForm = this.formBuilder.group({
-      title : ['', Validators.required],
-      description : ['', Validators.required],
-      status : ['', Validators.required]
-    })
-    if(this.editData){
-      this.actionBtn = "Update";
-      this.taskForm.controls['taskForm'].setValue(this.editData.taskForm);
-      this.taskForm.controls['title'].setValue(this.editData.title);
-      this.taskForm.controls['description'].setValue(this.editData.description);
-      this.taskForm.controls['status'].setValue(this.editData.status);
+    ngOnInit(): void {
+      this.taskForm = this.formBuilder.group({
+        title : ['', Validators.required],
+        description : ['', Validators.required],
+        status : ['', Validators.required]
+      })
+      if(this.editData){
+        this.actionBtn = "Update";
+        this.taskForm.controls['title'].setValue(this.editData.title);
+        this.taskForm.controls['description'].setValue(this.editData.description);
+        this.taskForm.controls['status'].setValue(this.editData.status);
+      }
     }
-  }
   
 
   addTask(){
