@@ -12,6 +12,9 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+addTask() {
+throw new Error('Method not implemented.');
+}
   Name = 'demo';
   displayedColumns: string[] = ['title', 'description', 'status',  'action'];
   dataSource = new MatTableDataSource<any>([]);

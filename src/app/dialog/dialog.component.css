@@ -1,32 +1,34 @@
-mat-form-field {
-  width: 100%;
-}
-
-.task-dialog {
-  padding: 24px;
-}
-
+/* Styles for <h1> element */
 .dialog-title {
-  margin-bottom: 20px;
+  color: #333; 
+  font-size: 24px; 
+  font-weight: bold; 
+  margin-bottom: 20px; 
 }
 
-.dialog-content {
-  margin-bottom: 20px;
+.custom-dialog-content {
+  margin-bottom: 20px; 
 }
 
-.dialog-actions {
-  justify-content: flex-end;
+form {
+  width: 100%; 
 }
 
+mat-form-field {
+  width: 100%; 
+  margin-bottom: 20px; 
+  
+}
 
-/* Adjustments for smaller screens */
-/* @media screen and (max-width: 600px) {
-  .mat-dialog-actions {
-      flex-direction: column;
-      align-items: stretch;
-  }
+textarea {
+  resize: vertical;
+}
 
-  .mat-dialog-actions button {
-      margin-top: 8px;
-  }
-} */
+.custom-dialog-actions {
+  justify-content: flex-end; 
+}
+
+.dialog-actions button {
+  margin-left: 10px;
+  
+}
