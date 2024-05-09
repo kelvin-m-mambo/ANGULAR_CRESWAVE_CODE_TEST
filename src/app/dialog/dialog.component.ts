@@ -20,16 +20,16 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
-      tittle : ['', Validators.required],
+      title : ['', Validators.required],
       description : ['', Validators.required],
       status : ['', Validators.required]
     })
     if(this.editData){
       this.actionBtn = "Update";
       this.taskForm.controls['taskForm'].setValue(this.editData.taskForm);
-      this.taskForm.controls['tittle'].setValue(this.editData.tittle);
+      this.taskForm.controls['title'].setValue(this.editData.title);
       this.taskForm.controls['description'].setValue(this.editData.description);
-      this.taskForm.controls['status'].setValue(this.editData.description);
+      this.taskForm.controls['status'].setValue(this.editData.status);
     }
   }
   
@@ -64,3 +64,4 @@ export class DialogComponent implements OnInit {
   }
   
 }
+

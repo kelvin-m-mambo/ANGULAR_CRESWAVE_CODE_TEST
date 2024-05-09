@@ -12,16 +12,14 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'demo';
+  Name = 'demo';
   displayedColumns: string[] = ['title', 'description', 'status',  'action'];
-  dataSource: MatTableDataSource<any>; 
+  dataSource = new MatTableDataSource<any>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {
-    this.dataSource = new MatTableDataSource<any>(); 
-  }
+  constructor(private dialog: MatDialog, private api: ApiService) {}
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -46,11 +44,11 @@ export class AppComponent implements OnInit {
           this.dataSource.sort = this.sort;
         },
         error: (err) => {
-          console.error("Error while fetching the record!!!!!", err);
           alert("Error while fetching the record!!!!!")
         }
       });  
   }
+
   editTask(row : any){
     this.dialog.open(DialogComponent,{
       width: '30%',
