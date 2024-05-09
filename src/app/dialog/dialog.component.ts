@@ -10,7 +10,7 @@ import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog'
 })
 export class DialogComponent implements OnInit {
 
-  // statusList = ["Incomplete","complete", "Not Done"];
+  // statusList = ["Incomplete","complete"];
   taskForm !: FormGroup;
   actionBtn : string = "save"
   constructor(private formBuilder : FormBuilder, 
@@ -22,13 +22,14 @@ export class DialogComponent implements OnInit {
     this.taskForm = this.formBuilder.group({
       tittle : ['', Validators.required],
       description : ['', Validators.required],
-      // status : ['', Validators.required]
+      status : ['', Validators.required]
     })
     if(this.editData){
       this.actionBtn = "Update";
       this.taskForm.controls['taskForm'].setValue(this.editData.taskForm);
       this.taskForm.controls['tittle'].setValue(this.editData.tittle);
       this.taskForm.controls['description'].setValue(this.editData.description);
+      this.taskForm.controls['status'].setValue(this.editData.description);
     }
   }
   
