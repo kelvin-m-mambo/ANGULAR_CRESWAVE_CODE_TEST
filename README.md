@@ -51,3 +51,7 @@ The Task Manager is a comprehensive Angular application designed to simplify tas
 -   Angular Material
 -   JSON-server (for backend simulation)
 -   HTML/CSS
+
+### Demo
+https://github.com/kelvin-m-mambo/ANGULAR_CRESWAVE_CODE_TEST/assets/92169187/c027c1e8-06c8-46b4-a3b9-d25268bd9068
+
